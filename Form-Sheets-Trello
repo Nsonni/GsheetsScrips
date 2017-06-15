@@ -1,0 +1,29 @@
+function onFormSubmit(e) {
+  try {
+    var email ="annettekamau1+qcdpfuaq7jxkzoopcsat@boards.trello.com";
+    var requestName = e.values[2];
+    var contactEmail = e.values[1];
+    var endDate = e.values[4];
+    var requestDescription = e.values[3];
+    var requestPriority = e.values[5];
+    var requestOwner = e.values[6];
+    
+    var subject = requestName + " #blue";
+    
+    var message=
+        "Submitted by: " +
+          "\n" + contactEmail + 
+            "\n\nNature of request: " + requestDescription +
+              "\n\nPriority Status: " + requestPriority +
+                "\n\nRequest Deadline: " + endDate +
+                  "\n\nAssigned to: " + requestOwner;
+    
+    MailApp.sendEmail(email, subject, message);
+    
+  }
+  
+  catch(e) {
+    Logger.log(e.toString());
+  }
+               
+}
